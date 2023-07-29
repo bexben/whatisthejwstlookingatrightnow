@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>whatisthejwstlookingatrightnow</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+     <!-- <script type="text/javascript" src="{{ url_for('static',filename='script/script.js') }}"></script> -->
+
+</head>
+<body>
+    <div id="page">
+        <div class="objectBox">
+            <div id="announcement">The James Webb Space Telescope is currently looking at</div>
+            <div id="objectName"><bold>ABCDEFG</bold></div>
+            <div id="objectType">(Star)</div>
+            <div id="objectTimeElapsed">
+                It has been looking for 1 Hour, 14 minutes and 2 seconds
+            </div>
+            <div class="progressRow">
+                <div class="progressColumn progressSides">
+                    <div id="startTime">01/14:34:33</div>
+                </div>
+                <div class="progressColumn progressMiddle">
+                    <div class="progress">
+                        <div id="completion" class="progress__bar" style="width: 50%"></div>
+                    </div> 
+                </div> 
+                <div class="progressColumn progressSides">
+                    <div id="endTime">01/15:34:32</div>
+                </div>
+            </div>
+            <div class="upNext"><span style="color:#ffcc79">Up next: </span>Color calibration</div>
+        </div>
+
+        <div id="fuck">test</div>
+        <!-- <footer id="fuck">
+            test
+        </footer> -->
+    </div>
+    
+    <script src="{{ url_for('static',filename='script/targets.js') }}"></script>
+    <script src="{{ url_for('static',filename='script/main.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</body>
+</html>

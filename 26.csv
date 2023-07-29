@@ -1,0 +1,115 @@
+,PCS MODE,VISIT TYPE,SCHEDULED START TIME,DURATION,SCIENCE INSTRUMENT,TARGET NAME,CATEGORY,KEYWORDS,ADDITIONAL INSTRUMENTATION,PRIME
+0,FINEGUIDE,PRIME TARGETED FIXED,2022-11-21 01:06:43,0 days 01:13:13,MIRI Medium Resolution Spectroscopy,J045853.89+643452.9,Star,Brown dwarfs,0,True
+1,FINEGUIDE,PRIME WFSC ROUTINE,2022-11-21 02:32:03,0 days 01:32:08,WFSC NIRCam Fine Phasing,2MASS-05352161+6715458,Calibration,Focus test,0,True
+2,FINEGUIDE,PRIME TARGETED FIXED,2022-11-21 04:36:46,0 days 01:29:19,MIRI Medium Resolution Spectroscopy,F2M1106-MIRI,Galaxy,"Active galactic nuclei, Emission line galaxies, Quasars",1,True
+3,NONE,PARALLEL DARK CALIBRATION,,,NIRSpec Dark,,,,,
+4,FINEGUIDE,PRIME TARGETED FIXED,2022-11-21 06:22:44,0 days 00:28:43,MIRI Medium Resolution Spectroscopy,F2M1106-BG,Unidentified,Blank field,1,True
+5,NONE,PARALLEL SLEW CALIBRATION,,,NIRSpec Internal Lamp,,,,,
+6,FINEGUIDE,PRIME TARGETED FIXED,2022-11-21 07:32:44,0 days 01:03:55,MIRI Medium Resolution Spectroscopy,CASSIOPEIA-A-KNOT1,ISM,Supernova remnants,0,True
+7,FINEGUIDE,PRIME TARGETED FIXED,2022-11-21 08:43:36,0 days 01:03:55,MIRI Medium Resolution Spectroscopy,CASSIOPEIA-A-KNOT2,ISM,Supernova remnants,0,True
+8,FINEGUIDE,PRIME TARGETED FIXED,2022-11-21 09:53:42,0 days 01:01:10,MIRI Medium Resolution Spectroscopy,CASSIOPEIA-A-KNOT3,ISM,Supernova remnants,0,True
+9,FINEGUIDE,PRIME TARGETED FIXED,2022-11-21 11:02:45,0 days 01:03:55,MIRI Medium Resolution Spectroscopy,BACKGROUND-RETURN,Calibration,Telescope/sky background,0,True
+10,MOVING,PRIME TARGETED MOVING,2022-11-21 12:47:08,0 days 01:37:25,MIRI Medium Resolution Spectroscopy,526-JENA,Solar System,Asteroid,0,True
+11,MOVING,PRIME TARGETED MOVING,2022-11-21 15:32:55,0 days 01:51:36,NIRSpec IFU Spectroscopy,POLYMELE,Solar System,Asteroid,0,True
+12,FINEGUIDE,PRIME TARGETED FIXED,2022-11-21 18:31:05,0 days 04:01:35,MIRI Imaging,TRAPPIST-1B,Star,"Exoplanet Systems, Exoplanets, M dwarfs, M stars",0,True
+13,FINEGUIDE,PRIME TARGETED FIXED,2022-11-21 23:42:16,0 days 02:42:53,MIRI Medium Resolution Spectroscopy,SDSSJ0749-MIRI,Galaxy,"Active galactic nuclei, Emission line galaxies, Quasar-galaxy pairs",2,True
+14,NONE,PARALLEL DARK CALIBRATION,,,NIRISS Dark,,,,,
+15,NONE,PARALLEL SLEW CALIBRATION,,,NIRSpec Internal Lamp,,,,,
+16,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 02:28:30,0 days 00:43:56,MIRI Medium Resolution Spectroscopy,SDSSJ0749-BG,Unidentified,Blank field,1,True
+17,NONE,PARALLEL DARK CALIBRATION,,,NIRSpec Dark,,,,,
+18,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 04:19:13,0 days 04:39:41,NIRSpec IFU Spectroscopy,BDF3299,Galaxy,"High-redshift galaxies, Lyman-alpha galaxies",2,True
+19,NONE,PARALLEL DARK CALIBRATION,,,NIRISS Dark,,,,,
+20,NONE,PARALLEL SLEW CALIBRATION,,,MIRI Anneal,,,,,
+21,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 09:05:48,0 days 00:38:43,NIRSpec IFU Spectroscopy,BDF3299-BACKGROUND,Galaxy,High-redshift galaxies,0,True
+22,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 10:20:55,0 days 00:51:06,MIRI Imaging,NGC-1566,Galaxy,Spiral galaxies,1,True
+23,NONE,PARALLEL SLEW CALIBRATION,,,NIRSpec Internal Lamp,,,,,
+24,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 11:16:45,0 days 00:48:21,MIRI Imaging,NGC-1566,Galaxy,Spiral galaxies,0,True
+25,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 12:09:17,0 days 00:48:21,MIRI Imaging,NGC-1566,Galaxy,Spiral galaxies,0,True
+26,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 13:02:22,0 days 00:48:21,MIRI Imaging,NGC-1566,Galaxy,Spiral galaxies,0,True
+27,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 14:00:19,0 days 01:00:50,NIRCam Imaging,NGC-1566,Galaxy,Spiral galaxies,1,True
+28,,,,,MIRI Imaging,,,,,
+29,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 15:06:06,0 days 00:58:05,NIRCam Imaging,NGC-1566,Galaxy,Spiral galaxies,1,True
+30,,,,,MIRI Imaging,,,,,
+31,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 16:31:22,0 days 00:43:44,MIRI Imaging,MIRI-PT-5,Galaxy,"High-redshift galaxies, Starburst galaxies, Ultraluminous infrared galaxies",1,True
+32,NONE,PARALLEL DARK CALIBRATION,,,NIRSpec Dark,,,,,
+33,MOVING,PRIME TARGETED MOVING,2022-11-22 18:07:44,0 days 00:59:36,NIRSpec IFU Spectroscopy,SILA-NUMAN,Solar System,Asteroid,0,True
+34,NONE,PRIME UNTARGETED,2022-11-22 19:08:13,0 days 00:03:53,NIRSpec Internal Lamp,,,,,
+35,FINEGUIDE,PRIME TARGETED FIXED,2022-11-22 19:31:28,0 days 01:41:29,NIRCam Wide Field Slitless Spectroscopy,J0910P1656,Galaxy,"High-redshift galaxies, Quasars",1,True
+36,,,,,NIRISS Imaging,,,,,
+37,NONE,PRIME UNTARGETED,2022-11-22 21:38:57,0 days 03:00:00,Realtime Commanding,,,,,
+38,FINEGUIDE,PRIME TARGETED FIXED,2022-11-23 00:57:59,0 days 04:53:03,NIRCam Grism Time Series,55CNC,Star,"Exoplanet Systems, Exoplanets, G subdwarfs",0,True
+39,MOVING,PRIME TARGETED MOVING,2022-11-23 06:57:04,0 days 00:35:19,NIRCam Imaging,EUROPA,Solar System,Satellite,0,True
+40,MOVING,PRIME TARGETED MOVING,2022-11-23 07:40:07,0 days 01:01:02,NIRSpec IFU Spectroscopy,EUROPA,Solar System,Satellite,0,True
+41,MOVING,PRIME TARGETED MOVING,2022-11-23 08:49:56,0 days 00:17:40,MIRI Imaging,EUROPA,Solar System,Satellite,0,True
+42,FINEGUIDE,PRIME WFSC ROUTINE,2022-11-23 09:19:08,0 days 01:32:08,WFSC NIRCam Fine Phasing,2MASS-23425655+0014229,Calibration,Focus test,0,True
+43,MOVING,PRIME TARGETED MOVING,2022-11-23 11:59:13,0 days 00:43:04,NIRSpec IFU Spectroscopy,2003WL7,Solar System,Asteroid,0,True
+44,MOVING,PRIME TARGETED MOVING,2022-11-23 13:51:29,0 days 01:03:28,NIRSpec IFU Spectroscopy,2000OK67,Solar System,Asteroid,0,True
+45,MOVING,PRIME TARGETED MOVING,2022-11-23 15:10:24,0 days 00:59:36,NIRSpec IFU Spectroscopy,2005PU21,Solar System,Asteroid,0,True
+46,FINEGUIDE,PRIME TARGETED FIXED,2022-11-23 16:39:31,0 days 02:58:35,NIRSpec IFU Spectroscopy,SDSS-J221524.00-005643.8,Galaxy,Quasars,1,True
+47,NONE,PARALLEL DARK CALIBRATION,,,NIRCam Dark,,,,,
+48,FINEGUIDE,PRIME TARGETED FIXED,2022-11-23 20:46:23,0 days 02:53:53,NIRSpec IFU Spectroscopy,SDSSJ0749-NIRSPEC-REPEAT,Galaxy,"Active galactic nuclei, Emission line galaxies, Quasar-galaxy pairs",1,True
+49,NONE,PARALLEL DARK CALIBRATION,,,NIRCam Dark,,,,,
+50,FINEGUIDE,PRIME TARGETED FIXED,2022-11-24 00:18:51,0 days 02:34:04,MIRI Medium Resolution Spectroscopy,GN20-MRS,Galaxy,Active galactic nuclei,2,True
+51,NONE,PARALLEL DARK CALIBRATION,,,NIRCam Dark,,,,,
+52,NONE,PARALLEL DARK CALIBRATION,,,NIRSpec Dark,,,,,
+53,FINEGUIDE,PRIME TARGETED FIXED,2022-11-24 02:57:59,0 days 00:41:14,MIRI Medium Resolution Spectroscopy,GN20-MRS-BKG,Galaxy,High-redshift galaxies,2,True
+54,NONE,PARALLEL DARK CALIBRATION,,,NIRCam Dark,,,,,
+55,NONE,PARALLEL SLEW CALIBRATION,,,NIRSpec Internal Lamp,,,,,
+56,FINEGUIDE,PRIME TARGETED FIXED,2022-11-24 04:16:52,0 days 03:21:05,MIRI Medium Resolution Spectroscopy,XID2028-MIRI,Galaxy,"Active galactic nuclei, Emission line galaxies, Quasars",1,True
+57,NONE,PARALLEL DARK CALIBRATION,,,NIRSpec Dark,,,,,
+58,FINEGUIDE,PRIME TARGETED FIXED,2022-11-24 07:42:39,0 days 00:53:29,MIRI Medium Resolution Spectroscopy,XID2028-BG,Unidentified,Blank field,1,True
+59,NONE,PARALLEL DARK CALIBRATION,,,NIRSpec Dark,,,,,
+60,MOVING,PRIME TARGETED MOVING,2022-11-24 09:05:20,0 days 01:16:36,NIRSpec IFU Spectroscopy,2008FC76,Solar System,Asteroid,0,True
+61,NONE,PRIME UNTARGETED,2022-11-24 10:22:49,0 days 00:03:53,NIRSpec Internal Lamp,,,,,
+62,FINEGUIDE,PRIME TARGETED FIXED,2022-11-24 11:11:36,0 days 06:08:01,NIRCam Grism Time Series,-RHO01-CNC,Star,G dwarfs,0,True
+63,FINEGUIDE,PRIME TARGETED FIXED,2022-11-24 18:25:23,0 days 04:30:02,MIRI Imaging,TRAPPIST-1B,Star,"Exoplanet Systems, Exoplanets, M dwarfs, M stars",0,True
+64,FINEGUIDE,PRIME TARGETED FIXED,2022-11-24 23:48:35,0 days 01:48:37,MIRI Imaging,GN20-IMAGER,Galaxy,"Active galactic nuclei, Starburst galaxies",2,True
+65,NONE,PARALLEL DARK CALIBRATION,,,NIRCam Dark,,,,,
+66,NONE,PARALLEL DARK CALIBRATION,,,NIRSpec Dark,,,,,
+67,NONE,PRIME UNTARGETED,2022-11-25 01:38:05,0 days 00:01:07,NIRSpec Filter/Grating Wheel Test,,,,,
+68,NONE,PRIME UNTARGETED,2022-11-25 01:40:05,0 days 00:01:07,NIRSpec Filter/Grating Wheel Test,,,,,
+69,FINEGUIDE,PRIME TARGETED FIXED,2022-11-25 02:03:43,0 days 01:41:33,NIRSpec IFU Spectroscopy,M-81-NIRSPEC,Galaxy,"Active galactic nuclei, Spiral galaxies",0,True
+70,NONE,PRIME UNTARGETED,2022-11-25 03:46:09,0 days 00:03:53,NIRSpec Internal Lamp,,,,,
+71,FINEGUIDE,PRIME TARGETED FIXED,2022-11-25 04:11:12,0 days 00:26:33,NIRSpec Fixed Slit Spectroscopy,CWISEPJ1047+54,Star,"Brown dwarfs, Y dwarfs",0,True
+72,FINEGUIDE,PRIME TARGETED FIXED,2022-11-25 05:25:10,0 days 04:53:03,NIRCam Grism Time Series,55CNC,Star,"Exoplanet Systems, Exoplanets, G subdwarfs",0,True
+73,FINEGUIDE,PRIME WFSC ROUTINE,2022-11-25 11:23:22,0 days 01:32:08,WFSC NIRCam Fine Phasing,2MASS-23425655+0014229,Calibration,Focus test,0,True
+74,MOVING,PRIME TARGETED MOVING,2022-11-25 13:06:49,0 days 00:20:48,NIRSpec IFU Spectroscopy,CALLISTO,Solar System,Satellite,0,True
+75,NONE,PRIME UNTARGETED,2022-11-25 13:28:30,0 days 00:03:53,NIRSpec Internal Lamp,,,,,
+76,FINEGUIDE,PRIME TARGETED FIXED,2022-11-25 14:39:54,0 days 19:15:49,NIRSpec MultiObject Spectroscopy,BLUEJAY-MASTER-NORTH,,,1,True
+77,,,,,NIRCam Imaging,,,,,
+78,FINEGUIDE,PRIME TARGETED FIXED,2022-11-26 10:41:05,0 days 04:37:15,NIRCam Imaging,JWST-NEP-TDS-FIELD,Unidentified,"Infrared sources, Radio sources, Variable radiation sources, Visible sources, X-ray sources",1,True
+79,,,,,NIRISS Wide Field Slitless Spectroscopy,,,,,
+80,MOVING,PRIME TARGETED MOVING,2022-11-26 16:05:41,0 days 00:21:08,NIRSpec IFU Spectroscopy,2002AW197,Solar System,Asteroid,0,True
+81,NONE,PRIME UNTARGETED,2022-11-26 16:27:42,0 days 00:03:53,NIRSpec Internal Lamp,,,,,
+82,FINEGUIDE,PRIME TARGETED FIXED,2022-11-26 16:57:46,0 days 01:13:52,MIRI Imaging,NGC-3227,Galaxy,"Active galactic nuclei, Active galaxies, Seyfert galaxies",1,True
+83,NONE,PARALLEL DARK CALIBRATION,,,NIRCam Dark,,,,,
+84,FINEGUIDE,PRIME TARGETED FIXED,2022-11-26 18:17:40,0 days 00:41:32,MIRI Imaging,NGC-3227-BCKGND,Galaxy,"Active galactic nuclei, Active galaxies, Seyfert galaxies",0,True
+85,FINEGUIDE,PRIME TARGETED FIXED,2022-11-26 19:15:37,0 days 00:33:59,NIRSpec IFU Spectroscopy,IRAS-10565+2448,Galaxy,"Starburst galaxies, Ultraluminous infrared galaxies",1,True
+86,NONE,PARALLEL DARK CALIBRATION,,,NIRCam Dark,,,,,
+87,NONE,PRIME UNTARGETED,2022-11-26 19:50:29,0 days 00:03:53,NIRSpec Internal Lamp,,,,,
+88,FINEGUIDE,PRIME TARGETED FIXED,2022-11-26 21:03:19,0 days 01:09:39,NIRCam Coronagraphic Imaging,FOMALHAUT-C,Star,"Debris disks, M dwarfs",0,True
+89,FINEGUIDE,PRIME TARGETED FIXED,2022-11-26 22:29:59,0 days 01:09:39,NIRCam Coronagraphic Imaging,FOMALHAUT-C,Star,"Debris disks, M dwarfs",0,True
+90,FINEGUIDE,PRIME TARGETED FIXED,2022-11-27 00:27:06,0 days 01:09:39,NIRCam Coronagraphic Imaging,V-AP-COL,Star,M dwarfs,0,True
+91,FINEGUIDE,PRIME TARGETED FIXED,2022-11-27 01:53:46,0 days 01:09:39,NIRCam Coronagraphic Imaging,V-AP-COL,Star,M dwarfs,0,True
+92,FINEGUIDE,PRIME TARGETED FIXED,2022-11-27 03:39:52,0 days 01:09:39,NIRCam Coronagraphic Imaging,2MJ0944,Star,M dwarfs,0,True
+93,FINEGUIDE,PRIME TARGETED FIXED,2022-11-27 05:17:04,0 days 01:09:39,NIRCam Coronagraphic Imaging,2MJ0944,Star,M dwarfs,0,True
+94,FINEGUIDE,PRIME TARGETED FIXED,2022-11-27 07:33:24,0 days 04:46:30,NIRISS Single-Object Slitless Spectroscopy,WASP-52,Star,"Exoplanet Systems, Exoplanets",0,True
+95,FINEGUIDE,PRIME WFSC ROUTINE,2022-11-27 13:01:29,0 days 01:32:08,WFSC NIRCam Fine Phasing,2MASS-17505832+6914281,Calibration,Focus test,0,True
+96,FINEGUIDE,PRIME TARGETED FIXED,2022-11-27 14:44:58,0 days 04:37:15,NIRCam Imaging,JWST-NEP-TDS-FIELD,Unidentified,"Infrared sources, Radio sources, Variable radiation sources, Visible sources, X-ray sources",1,True
+97,,,,,NIRISS Wide Field Slitless Spectroscopy,,,,,
+98,FINEGUIDE,PRIME TARGETED FIXED,2022-11-27 20:01:30,0 days 00:49:17,NIRCam Coronagraphic Imaging,HR8799,Star,Exoplanet Systems,0,True
+99,FINEGUIDE,PRIME TARGETED FIXED,2022-11-27 21:02:49,0 days 00:42:16,NIRCam Coronagraphic Imaging,HD220657,Calibration,Coronagraphic,0,True
+100,FINEGUIDE,PRIME TARGETED FIXED,2022-11-27 22:02:46,0 days 00:49:17,NIRCam Coronagraphic Imaging,HR8799,Star,Exoplanet Systems,0,True
+101,MOVING,PRIME TARGETED MOVING,2022-11-27 23:56:47,0 days 00:54:31,NIRSpec Fixed Slit Spectroscopy,824ANASTASIA,Solar System,Asteroid,0,True
+102,MOVING,PRIME TARGETED MOVING,2022-11-28 01:16:11,0 days 00:23:39,NIRSpec Fixed Slit Spectroscopy,DIDYMOS,Solar System,Asteroid,0,True
+103,FINEGUIDE,PRIME TARGETED FIXED,2022-11-28 02:09:17,0 days 01:41:29,NIRCam Wide Field Slitless Spectroscopy,J1104P2134,Galaxy,"High-redshift galaxies, Quasars",1,True
+104,,,,,NIRISS Imaging,,,,,
+105,FINEGUIDE,PRIME TARGETED FIXED,2022-11-28 04:26:46,0 days 02:20:07,NIRSpec Fixed Slit Spectroscopy,NGC2506G31,Star,G dwarfs,1,True
+106,NONE,PARALLEL DARK CALIBRATION,,,NIRCam Dark,,,,,
+107,FINEGUIDE,PRIME TARGETED FIXED,2022-11-28 07:07:52,0 days 01:13:22,NIRSpec Fixed Slit Spectroscopy,J0844-0132,Galaxy,"High-redshift galaxies, Quasars",1,True
+108,NONE,PARALLEL DARK CALIBRATION,,,NIRCam Dark,,,,,
+109,FINEGUIDE,PRIME TARGETED FIXED,2022-11-28 08:28:34,0 days 01:26:32,NIRCam Imaging,J0844-0132,Galaxy,"High-redshift galaxies, Quasars",1,True
+110,NONE,PARALLEL DARK CALIBRATION,,,NIRSpec Dark,,,,,
+111,MOVING,PRIME TARGETED MOVING,2022-11-28 10:24:52,0 days 01:18:04,NIRSpec IFU Spectroscopy,LEMMON,Solar System,Comet,0,True
+112,MOVING,PRIME TARGETED MOVING,2022-11-28 11:49:24,0 days 01:15:19,NIRSpec IFU Spectroscopy,LEMMON-OFFSET,Solar System,Comet,0,True
+113,NONE,PRIME UNTARGETED,2022-11-28 13:05:36,0 days 00:03:53,NIRSpec Internal Lamp,,,,,
