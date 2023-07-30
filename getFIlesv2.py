@@ -43,8 +43,18 @@ def main():
 
     ####~~~~ ----PARSER---- ~~~~####
 
-    columns = ['PCS MODE', 'VISIT TYPE', 'SCHEDULED START TIME', 'DURATION', 'SCIENCE INSTRUMENT', 
-                    'TARGET NAME', 'CATEGORY', 'KEYWORDS', 'ADDITIONAL INSTRUMENTATION', 'PRIME']
+    columns = [
+        'PCS MODE', 
+        'VISIT TYPE', 
+        'SCHEDULED START TIME', 
+        'DURATION', 
+        'SCIENCE INSTRUMENT', 
+        'TARGET NAME', 
+        'CATEGORY', 
+        'KEYWORDS', 
+        'ADDITIONAL INSTRUMENTATION', 
+        'PRIME'
+        ]
     df = pd.DataFrame(columns=columns)
 
     for count, file in enumerate(scheduletxt):
@@ -73,27 +83,37 @@ def main():
                 keywords = object[210:].strip()
                 duration = timedelta(days=int(object[80:82]), hours=int(object[83:85]), minutes=int(object[86:88]), seconds=int(object[89:91]))
                 zero = 0
-                print(df)
-                '''df = pd.concat([df, {'PCS MODE':mode,
-                            'VISIT TYPE':type,
-                            'SCHEDULED START TIME':start,
-                            'DURATION':duration,
-                            'SCIENCE INSTRUMENT':instrument,
-                            'TARGET NAME':target,
-                            'CATEGORY':category,
-                            'KEYWORDS':keywords,
-                            'ADDITIONAL INSTRUMENTATION':zero,
-                            'PRIME':True}], ignore_index=True)'''
-                df = pd.concat([])
+                # print(df)
+                df_new_row = pd.DataFrame({
+                    'PCS MODE':mode,
+                    'VISIT TYPE':type,
+                    'SCHEDULED START TIME':start,
+                    'DURATION':duration,
+                    'SCIENCE INSTRUMENT':instrument,
+                    'TARGET NAME':target,
+                    'CATEGORY':category,
+                    'KEYWORDS':keywords,
+                    'ADDITIONAL INSTRUMENTATION':zero,
+                    'PRIME':True
+                    }, index=[0])
+                df = pd.concat([df, df_new_row], ignore_index=True)
 
             elif object[58:77] == '^ATTACHED TO PRIME^':
                 # Another instrument in same observation period
                 mode = object[15:24].strip()
                 type = object[27:52].strip()
                 instrument = object[93:143].strip()
-                df = df.append({'PCS MODE':mode,
-                            'VISIT TYPE':type,
-                            'SCIENCE INSTRUMENT':instrument}, ignore_index=True)
+                df_new_row = pd.DataFrame({
+                    'PCS MODE':mode,
+                    'VISIT TYPE':type,
+                    'SCIENCE INSTRUMENT':instrument
+                    }, index=[0])
+                df = pd.concat([df, df_new_row], ignore_index=True)
+                '''df = df.append({
+                    'PCS MODE':mode,
+                    'VISIT TYPE':type,
+                    'SCIENCE INSTRUMENT':instrument}, ignore_index=True
+                    )'''
                 # Set additonal instrumentation of previous non-prime row to += 1
                 i = 1
 
@@ -108,7 +128,13 @@ def main():
             elif object[27:47] == 'COORDINATED PARALLEL':  
                 # Another project in same observation period
                 instrument = object[93:143].strip()
-                df = df.append({'SCIENCE INSTRUMENT':instrument}, ignore_index=True)
+
+                df_new_row = pd.DataFrame({
+                    'SCIENCE INSTRUMENT':instrument
+                }, index=[0])
+                df = pd.concat([df, df_new_row], ignore_index=True)
+                # df = df.append({'SCIENCE INSTRUMENT':instrument}, ignore_index=True)
+
                 # Set additonal instrumentation of previous non-prime row to += 1 
                 i = 1
                 while True:
@@ -125,11 +151,20 @@ def main():
                 start = datetime.fromisoformat(object[58:77])
                 duration = timedelta(days=int(object[80:82]), hours=int(object[83:85]), minutes=int(object[86:88]), seconds=int(object[89:91]))
                 instrument = object[93:143].strip()
-                df = df.append({'PCS MODE':mode,
+                df_new_row = pd.DataFrame({
+                    'PCS MODE':mode,
+                    'VISIT TYPE':type,
+                    'SCHEDULED START TIME':start,
+                    'DURATION':duration,
+                    'SCIENCE INSTRUMENT':instrument
+                }, index=[0])
+                df = pd.concat([df, df_new_row], ignore_index=True)
+
+                '''df = df.append({'PCS MODE':mode,
                             'VISIT TYPE':type,
                             'SCHEDULED START TIME':start,
                             'DURATION':duration,
-                            'SCIENCE INSTRUMENT':instrument,}, ignore_index=True)
+                            'SCIENCE INSTRUMENT':instrument,}, ignore_index=True)'''
                 
             else: 
                 print('oopsy woopsy')
