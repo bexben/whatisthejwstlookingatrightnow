@@ -74,12 +74,13 @@ var targets = {
             .then(function (schedule) {
                 targets.getCurrentTarget(schedule);
                 console.log(self.data);
+                $("#objectName").text(self.data[5])  // target name
             })
         .catch(function (error) {
             console.error(error);
         })
         // Updating HTML 
-        console.log(this.data);
+        //console.log(this.data);
         //$("#objectName").text(this.data[5])  // target name
     }
 

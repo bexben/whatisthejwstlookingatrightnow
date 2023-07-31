@@ -69,7 +69,5 @@ function updateBar() {
 
 window.onload = function() {
     //targets.updateObject = updateObject;
-    console.log('last call')
     targets.updateObject();
-    
 }
