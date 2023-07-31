@@ -1,13 +1,4 @@
 
-// https://stackoverflow.com/questions/15721679/update-and-render-a-value-from-flask-periodically
-/*
-function get_schedule() {
-    // Update schedule once per day
-    $SCRIPT_ROOT == {{ requestAnimationFrame.script_root|tojson|safe }};
-    $.getJSON($SCRIPT_ROOT+"/schedule");
-}
-*/
-
 /*
 function updateBar() {
     // This function runs 1/second to update the progress bar
@@ -77,5 +68,8 @@ function updateBar() {
 } */
 
 window.onload = function() {
-    targets.loadSchedule();
+    //targets.updateObject = updateObject;
+    console.log('last call')
+    targets.updateObject();
+    
 }

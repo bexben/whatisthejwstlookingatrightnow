@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import datetime
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 path = r'D:\Ben\School\_LPDT\Python code\whatisthejwstlookingatrightnow'
@@ -11,8 +12,8 @@ path = r'D:\Ben\School\_LPDT\Python code\whatisthejwstlookingatrightnow'
 
 
 def times():
-    localTime = datetime.datetime.now()
-    utcTime = datetime.datetime.utcnow()
+    localTime = datetime.now()
+    utcTime = datetime.utcnow()
     return localTime, utcTime
 
 @app.route('/')  
@@ -26,9 +27,9 @@ def hello_world():
 @app.route('/schedule')
 def scheduleJson():
     # Change 23.json to todays date code
-    return render_template('23.json')
-    
-
+    utc = datetime.utcnow()
+    utcday = datetime.date(utc).day 
+    return render_template(f'{utcday}.json')
     
 
 if __name__ == '__main__':

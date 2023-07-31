@@ -165,14 +165,25 @@ def main():
                             'SCHEDULED START TIME':start,
                             'DURATION':duration,
                             'SCIENCE INSTRUMENT':instrument,}, ignore_index=True)'''
-                
+            elif object[27:54] == 'FULL BIASED MOMENTUM UNLOAD':
+                mode = object[15:24].strip()
+                type = object[27:52].strip()
+                start = datetime.fromisoformat(object[58:77])
+                duration = timedelta(days=int(object[80:82]), hours=int(object[83:85]), minutes=int(object[86:88]), seconds=int(object[89:91]))
+                df_new_row = pd.DataFrame({
+                    'PCS MODE':mode,
+                    'VISIT TYPE':type,
+                    'SCHEDULED START TIME':start,
+                    'DURATION':duration,
+                }, index=[0])
+                df = pd.concat([df, df_new_row], ignore_index=True)
             else: 
                 print('oopsy woopsy')
                 print(object)
 
     df = df.transpose()
-    filename = str(utcday) + '.json'
-    df.to_json(filename)
+    filename = str(utcday) 
+    df.to_json(f'templates/{filename}.json')
 
     ####~~~~ ----END PARSER---- ~~~~####
 
