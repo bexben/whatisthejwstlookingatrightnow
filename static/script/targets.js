@@ -15,6 +15,7 @@ var targets = {
 
 
     data: [],
+    nextTargetData: [],
 
     getCurrentTarget: function (scheduleJSON) {
         keys = Object.keys(scheduleJSON)
@@ -27,7 +28,7 @@ var targets = {
             if (startTime > time) {
                 console.log("Current Target: " + scheduleJSON[index]["TARGET NAME"]);
                 // edits 'data' variable which is visible to all functions in this var
-                this.data = [
+                targets.data = [
                     scheduleJSON[index]["PCS MODE"],
                     scheduleJSON[index]["VISIT TYPE"],
                     scheduleJSON[index]["SCHEDULED START TIME"],
@@ -39,7 +40,19 @@ var targets = {
                     scheduleJSON[index]["ADDITIONAL INSTRUMENTATION"],
                     scheduleJSON[index]["PRIME"],
                 ]
-                console.log(this.data)
+                targets.nextTargetData = [
+                    scheduleJSON[index+1]["PCS MODE"],
+                    scheduleJSON[index+1]["VISIT TYPE"],
+                    scheduleJSON[index+1]["SCHEDULED START TIME"],
+                    scheduleJSON[index+1]["DURATION"],
+                    scheduleJSON[index+1]["SCIENCE INSTRUMENT"],
+                    scheduleJSON[index+1]["TARGET NAME"],
+                    scheduleJSON[index+1]["CATEGORY"],
+                    scheduleJSON[index+1]["KEYWORDS"],
+                    scheduleJSON[index+1]["ADDITIONAL INSTRUMENTATION"],
+                    scheduleJSON[index+1]["PRIME"],
+                ]
+                console.log(targets.data)
                 break;
             }
         }
@@ -63,10 +76,11 @@ var targets = {
                 }
             };
             request.send();
-        //document.getElementById('fuck').innerHTML = 'shit';
         });
     },
 
+    // This is great, but I need to store the schedule somehow so there aren't client requests all the time
+    // to /schedule
     updateObject: function() {
         var self = this;
         // getting the current target
@@ -75,6 +89,9 @@ var targets = {
                 targets.getCurrentTarget(schedule);
                 console.log(self.data);
                 $("#objectName").text(self.data[5])  // target name
+                $("#objectType").text(self.data[6])  // target type
+                $("#upNextTarget").text(self.nextTargetData[5])  // next target
+                $("#upNextType").text(self.nextTargetData[6])
             })
         .catch(function (error) {
             console.error(error);
@@ -82,6 +99,37 @@ var targets = {
         // Updating HTML 
         //console.log(this.data);
         //$("#objectName").text(this.data[5])  // target name
-    }
+    },
 
+    updateTime: function() {
+        var self = this
+        // First I must calculate the current time through the observation
+        // note all times are in milliseconds i think
+        const d = new Date();
+        let time = d.getTime();
+        let startTime = targets.data[2];
+        let duration = targets.data[3];
+        let lookingTime = time - startTime;
+    
+        // Then I must put that into hour/min/sec
+        let time_looking_days = Math.floor(lookingTime/86400/1000);
+        let time_looking_hours = Math.floor(lookingTime/3600/1000);
+        let time_looking_minutes = Math.floor(lookingTime/60/1000);
+        let time_looking_seconds = Math.floor(lookingTime/1000);
+    
+        // THen I must put in percentage
+        let percentage_complete = lookingTime/duration
+        
+        // Then I must update all the elements
+        let time_printed = 'It has been looking for ';
+        if (time_looking_days > 0) {
+            time_printed += (String(time_looking_days) + ' days,');
+        }
+        if (time_looking_hours > 0) {
+            time_printed += (String(time_looking_hours) + ' hours,');
+        }
+        console.log(targets.data)
+        $("#objectTimeElapsed").text(targets.data[5]);
+    
+    }
 } 
