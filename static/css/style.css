@@ -59,6 +59,10 @@
     transform: translate(-50%, -50%);
 }
 
+#completion {
+    width: 20%;
+}
+
 #startTime { direction: rtl; }
 /*
 @keyframes fill-bar {

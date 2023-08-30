@@ -138,9 +138,6 @@ var targets = {
         let time_looking_minutes = Math.floor(hours_remainder/60);
 
         let time_looking_seconds = Math.floor(lookingTime % 60);
-    
-        // THen I must put in percentage
-        let percentage_complete = lookingTime/duration
         
         // Then I must update all the elements
         /*
@@ -158,6 +155,13 @@ var targets = {
             time_looking_days + ' days, ' + 
             time_looking_hours + ' hours, ' +
             time_looking_minutes + ' minutes, ' + 
-            time_looking_seconds + ' seconds, ');
+            time_looking_seconds + ' seconds '
+        );
+        
+        // Updating progress bar
+        let percentage_complete = lookingTime*1000/duration * 100
+        let width_string = percentage_complete.toFixed(3) + '%'
+        $("#completion").css('width', width_string);
+        
     }
 } 

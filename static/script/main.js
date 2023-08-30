@@ -67,14 +67,14 @@ function updateBar() {
     document.getElementById("bar").innerHTML = '75%'
 } */
 
-
+function onScheduleReadyCallback() {
+    // Updates progress bar once a second. 
+    timeUpdater = setInterval(targets.updateTime, 1000);
+}
 
 window.onload = function() {
     //targets.updateObject = updateObject;
     targets.updateObject(onScheduleReadyCallback);
 }
 
-function onScheduleReadyCallback() {
-    // Updates progress bar once a second. 
-    timeUpdater = setInterval(targets.updateTime, 1000);
-}
+
