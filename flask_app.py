@@ -6,10 +6,6 @@ app = Flask(__name__)
 path = r'D:\Ben\School\_LPDT\Python code\whatisthejwstlookingatrightnow'
 #path=r'' for pythonanywhere
 
-
-# def getSchedule():
-
-
 def times():
     localTime = datetime.now()
     utcTime = datetime.utcnow()
@@ -31,4 +27,4 @@ def scheduleJson():
     
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
