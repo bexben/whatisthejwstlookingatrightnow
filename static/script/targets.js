@@ -126,6 +126,7 @@ var targets = {
         let time = d.getTime();
         let startTime = targets.data[2];
         let duration = targets.data[3];
+        let endTime = startTime + duration;
         let lookingTime = Math.floor((time - startTime)/1000); // get that shit into second
     
         // Then I must put that into hour/min/sec
@@ -138,6 +139,7 @@ var targets = {
         let time_looking_minutes = Math.floor(hours_remainder/60);
 
         let time_looking_seconds = Math.floor(lookingTime % 60);
+
         
         // Then I must update all the elements
         /*
@@ -149,19 +151,49 @@ var targets = {
             time_printed += (String(time_looking_hours) + ' hours,');
         }
         */
-    
-        $("#objectTimeElapsed").text(
-            'It has been looking for ' + 
-            time_looking_days + ' days, ' + 
-            time_looking_hours + ' hours, ' +
-            time_looking_minutes + ' minutes, ' + 
-            time_looking_seconds + ' seconds '
-        );
         
         // Updating progress bar
         let percentage_complete = lookingTime*1000/duration * 100
-        let width_string = percentage_complete.toFixed(3) + '%'
-        $("#completion").css('width', width_string);
+        
+
+        if (percentage_complete > 100) {
+            $("#completion").css('width', '100%');
+            $("#objectName").text('Reorienting...')
+            $("#objectType").text('The JWST is switching between targets')
+
+            // Doing all the math
+            let reposition_time = Math.floor((time - endTime)/1000);
+            let time_repositioning_hours = Math.floor(reposition_time/3600);
+            let reposition_hours_remainder = reposition_time % 3600;
+
+            let time_repositioning_minutes = Math.floor(reposition_hours_remainder / 60);
+            let time_repositioning_seconds = reposition_time % 60;
+
+            $("#objectTimeElapsed").text(
+                'It has been repositioning for ' +
+                time_repositioning_hours + ' hours, ' +
+                time_repositioning_minutes + ' minutes, ' +
+                time_repositioning_seconds + ' seconds'
+            );
+            
+            let next_target_starttime = self.nextTargetData[2];
+            let total_reposition_time = next_target_starttime - endTime;
+            let reposition_percentage_complete = reposition_time / total_reposition_time
+            let width_string = percentage_complete.toFixed(3) + '%'
+            $("#completion").css('width', width_string);
+
+        } else {
+            let width_string = percentage_complete.toFixed(3) + '%'
+            $("#completion").css('width', width_string);
+            $("#objectTimeElapsed").text(
+                'It has been looking for ' + 
+                time_looking_days + ' days, ' + 
+                time_looking_hours + ' hours, ' +
+                time_looking_minutes + ' minutes, ' + 
+                time_looking_seconds + ' seconds '
+            );
+        }
+        
         
     }
 } 
