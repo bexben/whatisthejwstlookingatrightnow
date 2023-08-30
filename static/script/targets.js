@@ -17,6 +17,8 @@ var targets = {
     data: [],
     nextTargetData: [],
 
+    onScheduleReadyCallback: null,
+
     getCurrentTarget: function (scheduleJSON) {
         keys = Object.keys(scheduleJSON)
         const d = new Date();
@@ -81,8 +83,9 @@ var targets = {
 
     // This is great, but I need to store the schedule somehow so there aren't client requests all the time
     // to /schedule
-    updateObject: function() {
+    updateObject: function(callback) {
         var self = this;
+        //self.data = [3]
         // getting the current target
         targets.loadSchedule()
             .then(function (schedule) {
@@ -92,6 +95,8 @@ var targets = {
                 $("#objectType").text(self.data[6])  // target type
                 $("#upNextTarget").text(self.nextTargetData[5])  // next target
                 $("#upNextType").text(self.nextTargetData[6])
+                //targets.updateTime();
+                callback();
             })
         .catch(function (error) {
             console.error(error);
@@ -100,6 +105,13 @@ var targets = {
         //console.log(this.data);
         //$("#objectName").text(this.data[5])  // target name
     },
+
+    /*
+    onScheduleReadyCallback: function() {
+        // Updates progress bar once a second. 
+        timeUpdater = setInterval(updateTime, 1000);
+    },
+    */
 
     updateTime: function() {
         var self = this
@@ -128,8 +140,11 @@ var targets = {
         if (time_looking_hours > 0) {
             time_printed += (String(time_looking_hours) + ' hours,');
         }
-        console.log(targets.data)
-        $("#objectTimeElapsed").text(targets.data[5]);
+        console.log('shit');
+        console.log(targets.data);
+        
+        console.log(targets.data[3]);
+        $("#objectTimeElapsed").text(lookingTime);
     
     }
 } 

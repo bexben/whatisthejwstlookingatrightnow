@@ -26,7 +26,6 @@ def hello_world():
 
 @app.route('/schedule')
 def scheduleJson():
-    # Change 23.json to todays date code
     utc = datetime.utcnow()
     utcday = datetime.date(utc).day 
     return render_template(f'{utcday}.json')
