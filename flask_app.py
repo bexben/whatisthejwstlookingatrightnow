@@ -23,7 +23,11 @@ def hello_world():
 def scheduleJson():
     utc = datetime.utcnow()
     utcday = datetime.date(utc).day 
-    return render_template(f'{utcday}.json')
+    try:
+        return_template = render_template(f'{utcday}.json')
+    except OSError:
+        return_template = render_template(f'{utcday-1}.json')
+    return return_template
     
 
 if __name__ == '__main__':

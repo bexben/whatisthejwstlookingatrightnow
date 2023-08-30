@@ -1,7 +1,6 @@
 # project-specific
 # txt files and json files
 *.txt
-*.json
 *.Identifier
 
 # Byte-compiled / optimized / DLL files
