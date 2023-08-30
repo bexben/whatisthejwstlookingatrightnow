@@ -28,31 +28,32 @@ var targets = {
             startTime = scheduleJSON[index]["SCHEDULED START TIME"];
             //console.log(startTime)
             if (startTime > time) {
-                console.log("Current Target: " + scheduleJSON[index]["TARGET NAME"]);
+                targetIndex = index-1
+                console.log("Current Target: " + scheduleJSON[targetIndex]["TARGET NAME"]);
                 // edits 'data' variable which is visible to all functions in this var
                 targets.data = [
-                    scheduleJSON[index]["PCS MODE"],
-                    scheduleJSON[index]["VISIT TYPE"],
-                    scheduleJSON[index]["SCHEDULED START TIME"],
-                    scheduleJSON[index]["DURATION"],
-                    scheduleJSON[index]["SCIENCE INSTRUMENT"],
-                    scheduleJSON[index]["TARGET NAME"],
-                    scheduleJSON[index]["CATEGORY"],
-                    scheduleJSON[index]["KEYWORDS"],
-                    scheduleJSON[index]["ADDITIONAL INSTRUMENTATION"],
-                    scheduleJSON[index]["PRIME"],
+                    scheduleJSON[targetIndex]["PCS MODE"],
+                    scheduleJSON[targetIndex]["VISIT TYPE"],
+                    scheduleJSON[targetIndex]["SCHEDULED START TIME"],
+                    scheduleJSON[targetIndex]["DURATION"],
+                    scheduleJSON[targetIndex]["SCIENCE INSTRUMENT"],
+                    scheduleJSON[targetIndex]["TARGET NAME"],
+                    scheduleJSON[targetIndex]["CATEGORY"],
+                    scheduleJSON[targetIndex]["KEYWORDS"],
+                    scheduleJSON[targetIndex]["ADDITIONAL INSTRUMENTATION"],
+                    scheduleJSON[targetIndex]["PRIME"],
                 ]
                 targets.nextTargetData = [
-                    scheduleJSON[index+1]["PCS MODE"],
-                    scheduleJSON[index+1]["VISIT TYPE"],
-                    scheduleJSON[index+1]["SCHEDULED START TIME"],
-                    scheduleJSON[index+1]["DURATION"],
-                    scheduleJSON[index+1]["SCIENCE INSTRUMENT"],
-                    scheduleJSON[index+1]["TARGET NAME"],
-                    scheduleJSON[index+1]["CATEGORY"],
-                    scheduleJSON[index+1]["KEYWORDS"],
-                    scheduleJSON[index+1]["ADDITIONAL INSTRUMENTATION"],
-                    scheduleJSON[index+1]["PRIME"],
+                    scheduleJSON[targetIndex+1]["PCS MODE"],
+                    scheduleJSON[targetIndex+1]["VISIT TYPE"],
+                    scheduleJSON[targetIndex+1]["SCHEDULED START TIME"],
+                    scheduleJSON[targetIndex+1]["DURATION"],
+                    scheduleJSON[targetIndex+1]["SCIENCE INSTRUMENT"],
+                    scheduleJSON[targetIndex+1]["TARGET NAME"],
+                    scheduleJSON[targetIndex+1]["CATEGORY"],
+                    scheduleJSON[targetIndex+1]["KEYWORDS"],
+                    scheduleJSON[targetIndex+1]["ADDITIONAL INSTRUMENTATION"],
+                    scheduleJSON[targetIndex+1]["PRIME"],
                 ]
                 console.log(targets.data)
                 break;
@@ -95,7 +96,18 @@ var targets = {
                 $("#objectType").text(self.data[6])  // target type
                 $("#upNextTarget").text(self.nextTargetData[5])  // next target
                 $("#upNextType").text(self.nextTargetData[6])
-                //targets.updateTime();
+
+                // Updating start time
+                var start_time = self.data[2]; // start time
+                var start_date = new Date(start_time);
+                var t_s = start_date.toString().split(" ");
+                $("#startTime").text(t_s[1] + ' ' + t_s[2] + ' ' + t_s[4])
+
+                // Updating end time
+                var end_time = start_time + self.data[3]; // adding duration
+                var end_date = new Date(end_time);
+                var t_e = end_date.toString().split(" ");
+                $("#endTime").text(t_e[1] + ' ' + t_e[2] + ' ' + t_e[4])
                 callback();
             })
         .catch(function (error) {
@@ -106,13 +118,6 @@ var targets = {
         //$("#objectName").text(this.data[5])  // target name
     },
 
-    /*
-    onScheduleReadyCallback: function() {
-        // Updates progress bar once a second. 
-        timeUpdater = setInterval(updateTime, 1000);
-    },
-    */
-
     updateTime: function() {
         var self = this
         // First I must calculate the current time through the observation
@@ -121,18 +126,24 @@ var targets = {
         let time = d.getTime();
         let startTime = targets.data[2];
         let duration = targets.data[3];
-        let lookingTime = time - startTime;
+        let lookingTime = Math.floor((time - startTime)/1000); // get that shit into second
     
         // Then I must put that into hour/min/sec
-        let time_looking_days = Math.floor(lookingTime/86400/1000);
-        let time_looking_hours = Math.floor(lookingTime/3600/1000);
-        let time_looking_minutes = Math.floor(lookingTime/60/1000);
-        let time_looking_seconds = Math.floor(lookingTime/1000);
+        let time_looking_days = Math.floor(lookingTime/86400);
+        let days_remainder = Math.floor(lookingTime % 86400);
+
+        let time_looking_hours = Math.floor(days_remainder/3600);
+        let hours_remainder = Math.floor(lookingTime % 3600);
+
+        let time_looking_minutes = Math.floor(hours_remainder/60);
+
+        let time_looking_seconds = Math.floor(lookingTime % 60);
     
         // THen I must put in percentage
         let percentage_complete = lookingTime/duration
         
         // Then I must update all the elements
+        /*
         let time_printed = 'It has been looking for ';
         if (time_looking_days > 0) {
             time_printed += (String(time_looking_days) + ' days,');
@@ -140,11 +151,13 @@ var targets = {
         if (time_looking_hours > 0) {
             time_printed += (String(time_looking_hours) + ' hours,');
         }
-        console.log('shit');
-        console.log(targets.data);
-        
-        console.log(targets.data[3]);
-        $("#objectTimeElapsed").text(lookingTime);
+        */
     
+        $("#objectTimeElapsed").text(
+            'It has been looking for ' + 
+            time_looking_days + ' days, ' + 
+            time_looking_hours + ' hours, ' +
+            time_looking_minutes + ' minutes, ' + 
+            time_looking_seconds + ' seconds, ');
     }
 } 
