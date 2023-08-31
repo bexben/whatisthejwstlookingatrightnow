@@ -21,13 +21,14 @@ def hello_world():
 
 @app.route('/schedule')
 def scheduleJson():
-    utc = datetime.utcnow()
+    '''utc = datetime.utcnow()
     utcday = datetime.date(utc).day 
     try:
         return_template = render_template(f'{utcday}.json')
     except OSError:
-        return_template = render_template(f'{utcday-1}.json')
-    return return_template
+        return_template = render_template(f'{utcday-1}.json')'''
+    
+    return render_template('schedule.json')
     
 
 if __name__ == '__main__':

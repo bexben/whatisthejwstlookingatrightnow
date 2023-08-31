@@ -182,7 +182,8 @@ def main():
                 print(object)
 
     df = df.transpose()
-    filename = str(utcday) 
+    # filename = str(utcday) 
+    filename = "schedule"
     df.to_json(f'templates/{filename}.json')
 
     ####~~~~ ----END PARSER---- ~~~~####
