@@ -72,9 +72,13 @@ function onScheduleReadyCallback() {
     timeUpdater = setInterval(targets.updateTime, 1000);
 }
 
+function load_object() {
+    targets.updateObject(onScheduleReadyCallback);
+}
+
 window.onload = function() {
     //targets.updateObject = updateObject;
-    targets.updateObject(onScheduleReadyCallback);
+    load_object();
 }
 
 
