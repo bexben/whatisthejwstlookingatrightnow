@@ -93,9 +93,9 @@ var targets = {
                 targets.getCurrentTarget(schedule);
                 console.log(self.data);
                 $("#objectName").text(self.data[5])  // target name
-                $("#objectType").text(self.data[6])  // target type
+                $("#objectType").text(self.data[7])  // target type
                 $("#upNextTarget").text(self.nextTargetData[5])  // next target
-                $("#upNextType").text(self.nextTargetData[6])
+                $("#upNextType").text(self.nextTargetData[7])
 
                 // Updating start time
                 var start_time = self.data[2]; // start time
@@ -126,6 +126,7 @@ var targets = {
         let time = d.getTime();
         let startTime = targets.data[2];
         let duration = targets.data[3];
+        let endTime = startTime + duration;
         let lookingTime = Math.floor((time - startTime)/1000); // get that shit into second
     
         // Then I must put that into hour/min/sec
@@ -138,6 +139,7 @@ var targets = {
         let time_looking_minutes = Math.floor(hours_remainder/60);
 
         let time_looking_seconds = Math.floor(lookingTime % 60);
+
         
         // Then I must update all the elements
         /*
@@ -149,19 +151,63 @@ var targets = {
             time_printed += (String(time_looking_hours) + ' hours,');
         }
         */
-    
-        $("#objectTimeElapsed").text(
-            'It has been looking for ' + 
-            time_looking_days + ' days, ' + 
-            time_looking_hours + ' hours, ' +
-            time_looking_minutes + ' minutes, ' + 
-            time_looking_seconds + ' seconds '
-        );
         
         // Updating progress bar
         let percentage_complete = lookingTime*1000/duration * 100
-        let width_string = percentage_complete.toFixed(3) + '%'
-        $("#completion").css('width', width_string);
         
-    }
+
+        if (percentage_complete > 100) {
+            $("#completion").css('width', '100%');
+            $("#objectName").text('Reorienting...')
+            $("#objectType").text('The JWST is switching between targets')
+
+            // Doing all the math
+            let reposition_time = Math.floor((time - endTime)/1000);
+            let time_repositioning_hours = Math.floor(reposition_time/3600);
+            let reposition_hours_remainder = reposition_time % 3600;
+
+            let time_repositioning_minutes = Math.floor(reposition_hours_remainder / 60);
+            let time_repositioning_seconds = reposition_time % 60;
+
+            $("#objectTimeElapsed").text(
+                'It has been repositioning for ' +
+                time_repositioning_hours + ' hours, ' +
+                time_repositioning_minutes + ' minutes, ' +
+                time_repositioning_seconds + ' seconds'
+            );
+            //console.log(targets.nextTargetData)
+            let next_target_starttime = targets.nextTargetData[2];
+            let total_reposition_time = next_target_starttime - endTime;
+            let reposition_percentage_complete = reposition_time*1000 / total_reposition_time * 100
+            let width_string = reposition_percentage_complete.toFixed(3) + '%'
+            console.log(width_string)
+            
+            $("#completion").css('width', width_string);
+
+            // yea i should not have this be called every second whatever dude 
+            var repostiion_start_date = new Date(endTime);
+            var t_r_s = repostiion_start_date.toString().split(" ");
+            $("#startTime").text(t_r_s[1] + ' ' + t_r_s[2] + ' ' + t_r_s[4])
+
+            var reposition_end_date = new Date(next_target_starttime);
+            var t_r_e = reposition_end_date.toString().split(" ");
+            $("#endTime").text(t_r_e[1] + ' ' + t_r_e[2] + ' ' + t_r_e[4])
+
+        } else {
+            let width_string = percentage_complete.toFixed(3) + '%'
+            $("#completion").css('width', width_string);
+            $("#objectTimeElapsed").text(
+                'It has been looking for ' + 
+                time_looking_days + ' days, ' + 
+                time_looking_hours + ' hours, ' +
+                time_looking_minutes + ' minutes, ' + 
+                time_looking_seconds + ' seconds '
+            );
+        }
+        
+        if (targets.nextTargetData[2] <= time) {
+            load_object();
+        }
+        
+    },
 } 
