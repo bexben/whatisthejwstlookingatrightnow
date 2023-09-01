@@ -170,7 +170,7 @@ var targets = {
             let time_repositioning_seconds = reposition_time % 60;
 
             $("#objectTimeElapsed").text(
-                'It has been repositioning for ' +
+                'It has been switching for ' +
                 time_repositioning_hours + ' hours, ' +
                 time_repositioning_minutes + ' minutes, ' +
                 time_repositioning_seconds + ' seconds'
