@@ -96,11 +96,12 @@ def main():
                     'ADDITIONAL INSTRUMENTATION':zero,
                     'PRIME':True
                     }, index=[0])
+                
                 df = pd.concat([df, df_new_row], ignore_index=True)
 
             elif object[58:77] == '^ATTACHED TO PRIME^':
                 # Another instrument in same observation period
-                mode = object[15:24].strip()
+                '''mode = object[15:24].strip()
                 type = object[27:52].strip()
                 instrument = object[93:143].strip()
                 df_new_row = pd.DataFrame({
@@ -108,12 +109,8 @@ def main():
                     'VISIT TYPE':type,
                     'SCIENCE INSTRUMENT':instrument
                     }, index=[0])
+                print(type)
                 df = pd.concat([df, df_new_row], ignore_index=True)
-                '''df = df.append({
-                    'PCS MODE':mode,
-                    'VISIT TYPE':type,
-                    'SCIENCE INSTRUMENT':instrument}, ignore_index=True
-                    )'''
                 # Set additonal instrumentation of previous non-prime row to += 1
                 i = 1
 
@@ -123,11 +120,15 @@ def main():
                         df.loc[count-i+initialLen, 'ADDITIONAL INSTRUMENTATION'] = currentval + 1
                         break
                     else:
-                        i += 1
+                        i += 1'''
+                # doing this 
+                pass
                     
             elif object[27:47] == 'COORDINATED PARALLEL':  
+                pass
+                # doing this for now
                 # Another project in same observation period
-                instrument = object[93:143].strip()
+                '''instrument = object[93:143].strip()
 
                 df_new_row = pd.DataFrame({
                     'SCIENCE INSTRUMENT':instrument
@@ -143,7 +144,7 @@ def main():
                         df.loc[count-i+initialLen, 'ADDITIONAL INSTRUMENTATION'] = currentval + 1
                         break
                     else:
-                        i += 1
+                        i += 1'''
             elif object[27:43] == 'PRIME UNTARGETED':
                 # dark frames
                 mode = object[15:24].strip()
@@ -159,12 +160,7 @@ def main():
                     'SCIENCE INSTRUMENT':instrument
                 }, index=[0])
                 df = pd.concat([df, df_new_row], ignore_index=True)
-
-                '''df = df.append({'PCS MODE':mode,
-                            'VISIT TYPE':type,
-                            'SCHEDULED START TIME':start,
-                            'DURATION':duration,
-                            'SCIENCE INSTRUMENT':instrument,}, ignore_index=True)'''
+                
             elif object[27:54] == 'FULL BIASED MOMENTUM UNLOAD':
                 mode = object[15:24].strip()
                 type = object[27:52].strip()
@@ -182,6 +178,7 @@ def main():
                 print(object)
 
     df = df.transpose()
+    # print(df)
     # filename = str(utcday) 
     filename = "schedule"
     df.to_json(f'templates/{filename}.json')
