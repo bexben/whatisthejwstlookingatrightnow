@@ -37,8 +37,6 @@ def main():
         if diff >= -7:  # i doubt this will fail but it might if the gaps ever are larger than 7 days loll
             scheduletxt.append(txtfiles[count]) # scheduletxt is the filename of the relevant schedule.
 
-    # print(scheduletxt)
-
     ####~~~~ ----END .TXT GRABBER---- ~~~~####
 
     ####~~~~ ----PARSER---- ~~~~####
