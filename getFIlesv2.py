@@ -179,6 +179,7 @@ def main():
     # print(df)
     # filename = str(utcday) 
     filename = "schedule"
+    os.remove(f'templates/{filename}.json')
     df.to_json(f'templates/{filename}.json')
 
     ####~~~~ ----END PARSER---- ~~~~####
