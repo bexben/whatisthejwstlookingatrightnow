@@ -171,6 +171,18 @@ def main():
                     'DURATION':duration,
                 }, index=[0])
                 df = pd.concat([df, df_new_row], ignore_index=True)
+            elif object[27:48] == 'PRIME STATION KEEPING':
+                mode = 'Station Keeping'
+                start = datetime.fromisoformat(object[58:77])
+                duration = timedelta(days=int(object[80:82]), hours=int(object[83:85]), minutes=int(object[86:88]), seconds=int(object[89:91]))
+
+                custom_key = 'The JWST is currently adjusting its orbit'
+                df_new_row = pd.DataFrame({
+                    'SCHEDULED START TIME':start,
+                    'DURATION':duration,
+                    'TARGET NAME':mode,
+                    'KEYWORDS':custom_key
+                }, index=[0])
             else: 
                 print('oopsy woopsy')
                 print(object)
