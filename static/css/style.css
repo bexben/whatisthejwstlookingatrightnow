@@ -80,7 +80,12 @@
         font-family: 'Raleway', sans-serif;
     }
 
-    .page { margin: 0 auto; width: 100%; background-color: #1d1c20; visibility: hidden; }
+    .page { 
+        margin: 0 auto; 
+        max-width: 1500px; 
+        background-color: #1d1c20; 
+        visibility: hidden; 
+    }
     /*.main { margin: 0 auto; width: 100%; background-color: #111; visibility: hidden; } */
 
     .objectBox {
